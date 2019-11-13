@@ -26,16 +26,34 @@ public class Level {
 
         assert scanner != null;
         assert lineReader != null;
+
         countColumnsAndRows(scanner, lineReader);
 
-        loadGrid(scanner);
+        loadGrid(file);
+        for(int[] T : grid){
+            for(int elt: T)
+                System.out.println(elt);
+        }
     }
-    private void loadGrid(Scanner scanner) {
+
+    // METHODE LOADGRID A CHANGER  -- Observation log : 13112019 18:01 - Youssef
+    private void loadGrid(File file) {
         grid = new int[rows][columns];
-        scanner.reset();
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         for (int i = 0; i < rows; i++) {
+            if(scanner.hasNext())
             for (int j = 0; j < columns; j++) {
-                grid[i][j] = scanner.nextInt();
+
+                if(scanner.hasNextLine()){
+
+                    grid[i][j] = scanner.nextInt();
+                    System.out.println(grid[i][j]);
+                }
             }
         }
     }
@@ -46,17 +64,24 @@ public class Level {
             columns = line.length();
             lineReader.close();
 
-            while(scanner.hasNextLine())
+            while(scanner.hasNextLine()) {
+                scanner.nextLine();
                 rows++;
-
+            }
+            System.out.println("titi");
         } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
     @Override
     public String toString() {
+        String s = "";
+        for(int[] T : grid){
+            for(int elt: T)
+                s = s + " " + elt;
+        }
         return "Level{" +
-                "grid=" + Arrays.toString(grid) +
+                "grid=" + s +
                 '}';
     }
 }

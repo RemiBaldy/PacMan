@@ -12,7 +12,8 @@ public class Model {
     }
 
     private void initializeLevel() {
-        level = new Level(new File("/levels/level1.txt"));
+        System.out.println("toto");
+        level = new Level(new File("src/levels/level1.txt"));
         System.out.println(level);
     }
 }
