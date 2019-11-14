@@ -1,5 +1,7 @@
 package sample.Model;
 
+import sample.Model.Entities.Cell;
+
 import java.io.*;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -88,6 +90,10 @@ public class Level {
                 ", rows=" + rows +
                 ", grid=" + s +
                 '}';
+    }
+
+    public Cell getCell(int xPos, int yPos) {
+
     }
 }
 

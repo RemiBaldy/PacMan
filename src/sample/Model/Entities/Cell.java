@@ -2,5 +2,6 @@ package sample.Model.Entities;
 
 public interface Cell {
 
-    public void treatCollision();
+    void treatCollision();
+    boolean isAccessible();
 }
