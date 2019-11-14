@@ -5,15 +5,14 @@ import java.io.File;
 public class Model {
 
     private int[][] grid;
-    Level level;
+    private Level level;
 
     public Model() {
         this.initializeLevel();
     }
 
     private void initializeLevel() {
-        level = new Level(new File("/levels/level1.txt"));
-        System.out.println(level);
+        level = new Level(new File("src/levels/level1.txt"));
     }
 }
 
