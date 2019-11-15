@@ -1,6 +1,6 @@
 package sample.Model.Entities;
 
-public class Pacman implements Entity {
+public class Wall implements Entity {
     @Override
     public void treatCollision() {
 
@@ -13,6 +13,6 @@ public class Pacman implements Entity {
 
     @Override
     public String toString() {
-        return "Pacman";
+        return "Wall";
     }
 }

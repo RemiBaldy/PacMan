@@ -1,15 +1,19 @@
 package sample.Model;
 
 import sample.Model.Entities.Cell;
+import sample.Model.Entities.Entity;
+import sample.Model.Entities.FactoryEntities;
 
 import java.io.*;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import static sample.Model.Entities.FactoryEntities.*;
+
 public class Level {
     int columns;
     int rows;
-    int[][] grid;
+    Entity[][] grid;
 
     public Level(File file) {
         columns = 0;
@@ -32,12 +36,12 @@ public class Level {
         countColumnsAndRows(scanner, lineReader);
 
         loadGrid(file);
+
         System.out.println(this);
     }
 
-    // METHODE LOADGRID A CHANGER  -- Observation log : 13112019 18:01 - Youssef
     private void loadGrid(File file) {
-        grid = new int[rows][columns];
+        grid = new Entity[rows][columns];
         Scanner scanner = null;
         try {
             scanner = new Scanner(file);
@@ -47,7 +51,7 @@ public class Level {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 if(scanner.hasNextInt()){
-                    grid[i][j] = scanner.nextInt();
+                    grid[i][j] = getEntity(EntityCode.values()[scanner.nextInt()]);
                 }
             }
             if(scanner.hasNextLine())
@@ -64,7 +68,6 @@ public class Level {
                 lineScan.nextInt();
                 columns++;
             }
-
             lineScan.close();
             lineReader.close();
 
@@ -80,10 +83,10 @@ public class Level {
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder();
-        for(int[] T : grid){
+        for(Entity[] T : grid){
             s.append("\n");
-            for(int elt: T)
-                s.append(" ").append(elt);
+            for(Entity elt: T)
+                s.append(" ").append(elt.toString());
         }
         return "Level{" +
                 "columns=" + columns +
@@ -92,8 +95,8 @@ public class Level {
                 '}';
     }
 
-    public Cell getCell(int xPos, int yPos) {
-
+    public Entity getCell(int xPos, int yPos) {
+        return grid[xPos][yPos];
     }
 }
 

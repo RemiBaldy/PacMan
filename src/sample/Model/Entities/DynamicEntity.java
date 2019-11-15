@@ -12,13 +12,13 @@ public class DynamicEntity {
     private Pair<Integer, Integer> position;
 
     public void move(Direction direction){
-        Cell nextCell = getNextCell(direction);
+        Entity nextCell = getNextCell(direction);
         if(nextCell.isAccessible()){
             nextCell.treatCollision();
         }
     }
 
-    public Cell getNextCell(Direction direction){
+    public Entity getNextCell(Direction direction){
         if(direction == Direction.Up)
             return currentMap.getCell(getXPos()+1, getYPos());
         else if(direction == Direction.Down)
