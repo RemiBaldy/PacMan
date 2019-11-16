@@ -1,6 +1,7 @@
 package sample.Model.Entities;
 
+import sample.Model.InputKey;
+
 public interface Entity {
-    void treatCollision();
-    boolean isAccessible();
+   void move(InputKey.Direction direction);
 }

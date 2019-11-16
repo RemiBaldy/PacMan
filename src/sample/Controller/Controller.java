@@ -9,7 +9,7 @@ public class Controller {
     private boolean running;
 
     public Controller() {
-        this.keyHandler = new KeyHandler();
+        this.keyHandler = new KeyHandler(model.getPacman());
         this.running = true;
     }
 

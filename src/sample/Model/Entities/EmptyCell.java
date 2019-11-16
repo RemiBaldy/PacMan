@@ -1,6 +1,6 @@
 package sample.Model.Entities;
 
-public class EmptyCell implements Entity {
+public class EmptyCell implements Cell {
     @Override
     public void treatCollision() {
 

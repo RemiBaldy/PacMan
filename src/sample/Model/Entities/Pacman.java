@@ -1,6 +1,8 @@
 package sample.Model.Entities;
 
-public class Pacman implements Entity {
+import sample.Model.InputKey;
+
+public class Pacman implements Cell, Entity {
     @Override
     public void treatCollision() {
 
@@ -14,5 +16,10 @@ public class Pacman implements Entity {
     @Override
     public String toString() {
         return "Pacman";
+    }
+
+    @Override
+    public void move(InputKey.Direction direction) {
+
     }
 }

@@ -1,6 +1,6 @@
 package sample.Model.Entities;
 
-public class FruitCell implements Entity {
+public class FruitCell implements Cell {
     @Override
     public void treatCollision() {
 

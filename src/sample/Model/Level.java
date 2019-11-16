@@ -1,11 +1,8 @@
 package sample.Model;
 
 import sample.Model.Entities.Cell;
-import sample.Model.Entities.Entity;
-import sample.Model.Entities.FactoryEntities;
 
 import java.io.*;
-import java.util.Arrays;
 import java.util.Scanner;
 
 import static sample.Model.Entities.FactoryEntities.*;
@@ -13,7 +10,7 @@ import static sample.Model.Entities.FactoryEntities.*;
 public class Level {
     int columns;
     int rows;
-    Entity[][] grid;
+    Cell[][] grid;
 
     public Level(File file) {
         columns = 0;
@@ -41,7 +38,7 @@ public class Level {
     }
 
     private void loadGrid(File file) {
-        grid = new Entity[rows][columns];
+        grid = new Cell[rows][columns];
         Scanner scanner = null;
         try {
             scanner = new Scanner(file);
@@ -83,9 +80,9 @@ public class Level {
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder();
-        for(Entity[] T : grid){
+        for(Cell[] T : grid){
             s.append("\n");
-            for(Entity elt: T)
+            for(Cell elt: T)
                 s.append(" ").append(elt.toString());
         }
         return "Level{" +
@@ -95,7 +92,7 @@ public class Level {
                 '}';
     }
 
-    public Entity getCell(int xPos, int yPos) {
+    public Cell getCell(int xPos, int yPos) {
         return grid[xPos][yPos];
     }
 }

@@ -3,7 +3,7 @@ package sample.Model.Entities;
 public class FactoryEntities {
     public enum EntityCode {Wall,FruitCell,EmptyCell,PacMan,Ghost};
 
-    public static Entity getEntity(EntityCode entityCode){
+    public static Cell getEntity(EntityCode entityCode){
         if(entityCode == EntityCode.EmptyCell)
             return new EmptyCell();
         if(entityCode == EntityCode.FruitCell)

@@ -1,6 +1,6 @@
 package sample.Model.Entities;
 
-public class Wall implements Entity {
+public class Wall implements Cell {
     @Override
     public void treatCollision() {
 
