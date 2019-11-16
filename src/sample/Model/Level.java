@@ -40,6 +40,7 @@ public class Level {
     private void loadGrid(File file) {
         grid = new Cell[rows][columns];
         Scanner scanner = null;
+        Cell newCell;
         try {
             scanner = new Scanner(file);
         } catch (FileNotFoundException e) {

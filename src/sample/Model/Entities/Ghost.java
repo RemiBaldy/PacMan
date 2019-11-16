@@ -1,6 +1,21 @@
 package sample.Model.Entities;
 
-public class Ghost implements Cell {
+import sample.Model.InputKey;
+
+public class Ghost implements Cell, Entity{
+
+    DynamicEntity dynamicGhost;
+
+    @Override
+    public String toString() {
+        return "Ghost";
+    }
+
+    @Override
+    public Position getPosition() {
+        return dynamicGhost.getPosition();
+    }
+
     @Override
     public void treatCollision() {
 
@@ -12,7 +27,7 @@ public class Ghost implements Cell {
     }
 
     @Override
-    public String toString() {
-        return "Ghost";
+    public Cell move(InputKey.Direction direction) {
+
     }
 }

@@ -10,10 +10,12 @@ public class FactoryEntities {
             return new FruitCell();
         if(entityCode == EntityCode.Wall)
             return new Wall();
-        if(entityCode == EntityCode.PacMan)
+        if(entityCode == EntityCode.PacMan) {
             return new Pacman();
-        if(entityCode == EntityCode.Ghost)
+        }
+        if(entityCode == EntityCode.Ghost) {
             return new Ghost();
+        }
         return  null;
     }
 }

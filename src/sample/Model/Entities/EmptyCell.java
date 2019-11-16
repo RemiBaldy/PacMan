@@ -1,6 +1,16 @@
 package sample.Model.Entities;
 
+import javafx.util.Pair;
+
 public class EmptyCell implements Cell {
+
+    Position position;
+
+    @Override
+    public Position getPosition() {
+        return position;
+    }
+
     @Override
     public void treatCollision() {
 
