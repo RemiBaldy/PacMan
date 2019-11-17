@@ -1,6 +1,6 @@
 package sample.Model.Entities;
 
-public class FactoryEntities {
+public class FactoryCell {
     public enum EntityCode {Wall,FruitCell,EmptyCell,PacMan,Ghost};
 
     public static Cell getCell(EntityCode entityCode, Position position){

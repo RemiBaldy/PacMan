@@ -5,7 +5,7 @@ import sample.Model.Entities.*;
 import java.io.*;
 import java.util.Scanner;
 
-import static sample.Model.Entities.FactoryEntities.*;
+import static sample.Model.Entities.FactoryCell.*;
 
 public class Level {
     int columns;
@@ -53,7 +53,7 @@ public class Level {
             for (int j = 0; j < columns; j++) {
                 if(scanner.hasNextInt()){
                     int result = scanner.nextInt();
-                    grid[i][j] = FactoryEntities.getCell(EntityCode.values()[result], new Position(i,j));
+                    grid[i][j] = FactoryCell.getCell(EntityCode.values()[result], new Position(i,j));
                     if(result == 3)
                         pacman = new Pacman(new DynamicEntity(this,new Position(i,j)));
                 }
