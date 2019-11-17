@@ -1,10 +1,13 @@
 package sample.Model.Entities;
 
+import javafx.scene.image.Image;
 import sample.Model.InputKey;
 
 public class Pacman implements Cell, Entity {
 
     private DynamicEntity dynamicPacman;
+
+    private InputKey.Direction direction;
 
     public Pacman(DynamicEntity dynamicPacman) {
         this.dynamicPacman = dynamicPacman;
@@ -35,5 +38,10 @@ public class Pacman implements Cell, Entity {
     @Override
     public boolean isAccessible() {
         return false;
+    }
+
+    @Override
+    public Image toImageView() {
+        return null;
     }
 }

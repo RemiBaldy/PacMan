@@ -1,6 +1,8 @@
 package sample.Model.Entities;
 
 
+import javafx.scene.image.Image;
+
 public class EmptyCell implements Cell,Consumable {
 
     Position position;
@@ -22,6 +24,11 @@ public class EmptyCell implements Cell,Consumable {
     @Override
     public boolean isAccessible() {
         return true;
+    }
+
+    @Override
+    public Image toImageView() {
+        return null;
     }
 
     @Override

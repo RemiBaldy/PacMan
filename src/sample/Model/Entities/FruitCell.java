@@ -1,8 +1,9 @@
 package sample.Model.Entities;
 
-import javafx.util.Pair;
+import javafx.scene.image.Image;
 
 public class FruitCell implements Cell, Consumable {
+
     Position position;
 
     public FruitCell(Position position) {
@@ -22,6 +23,11 @@ public class FruitCell implements Cell, Consumable {
     @Override
     public boolean isAccessible() {
         return true;
+    }
+
+    @Override
+    public Image toImageView() {
+        return null;
     }
 
     @Override

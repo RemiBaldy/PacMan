@@ -1,30 +1,29 @@
 package sample.Controller;
 
+import javafx.fxml.FXML;
+import sample.view.GameView;
 import sample.Model.Model;
 
 public class Controller {
 
-    Model model;
-    KeyHandler keyHandler;
+    private Model model;
+    private KeyHandler keyHandler;
+    @FXML private GameView gameView;
     private boolean running;
 
     public Controller() {
-        this.keyHandler = new KeyHandler(model.getPacman());
+        model = new Model();
+        gameView = new GameView();
+
+        this.keyHandler = new KeyHandler(model.getLevel().getPacman());
         this.running = true;
+
+        gameView.update(model.getLevel());
     }
 
     public KeyHandler getKeyHandler() {
         return keyHandler;
     }
 
-    /**
-     * Method called at start when loading the fxml file
-     */
-    public void initialize() {
-        //String file = this.getLevelFile(0);
-        this.model = new Model();
-        //this.update(PacManModel.Direction.NONE);
-        //ghostEatingModeCounter = 25;
-        //this.startTimer();
-    }
+
 }
