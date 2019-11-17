@@ -2,8 +2,12 @@ package sample.Model.Entities;
 
 import javafx.util.Pair;
 
-public class FruitCell implements Cell {
+public class FruitCell implements Cell, Consumable {
     Position position;
+
+    public FruitCell(Position position) {
+        this.position = position;
+    }
 
     @Override
     public Position getPosition() {
@@ -11,17 +15,17 @@ public class FruitCell implements Cell {
     }
 
     @Override
-    public void treatCollision() {
+    public void use() {
 
     }
 
     @Override
     public boolean isAccessible() {
-        return false;
+        return true;
     }
 
     @Override
     public String toString() {
-        return "FruitCell";
+        return "F";
     }
 }

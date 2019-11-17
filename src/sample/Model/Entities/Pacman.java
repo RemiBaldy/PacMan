@@ -6,17 +6,24 @@ public class Pacman implements Cell, Entity {
 
     private DynamicEntity dynamicPacman;
 
+    public Pacman(DynamicEntity dynamicPacman) {
+        this.dynamicPacman = dynamicPacman;
+    }
+
     @Override
     public String toString() {
-        return "Pacman";
+        return "P";
     }
 
     @Override
     public Cell move(InputKey.Direction direction) {
-        Cell newCell = move(direction);
-        if(newCell != null)
-        newCell.treatCollision();
-
+        Cell newCell = dynamicPacman.move(direction);
+        if(newCell != null){
+            Collision.treatCollision(this,newCell);
+            ((Consumable)newCell).use();
+            return newCell;
+        }
+        return null;
     }
 
     @Override
@@ -24,10 +31,6 @@ public class Pacman implements Cell, Entity {
         return dynamicPacman.getPosition();
     }
 
-    @Override
-    public void treatCollision() {
-
-    }
 
     @Override
     public boolean isAccessible() {

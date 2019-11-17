@@ -3,14 +3,13 @@ package sample.Model.Entities;
 public class Wall implements Cell {
     Position position;
 
-    @Override
-    public Position getPosition() {
-        return null;
+    public Wall(Position position) {
+        this.position = position;
     }
 
     @Override
-    public void treatCollision() {
-
+    public Position getPosition() {
+        return position;
     }
 
     @Override
@@ -20,6 +19,6 @@ public class Wall implements Cell {
 
     @Override
     public String toString() {
-        return "Wall";
+        return "W";
     }
 }

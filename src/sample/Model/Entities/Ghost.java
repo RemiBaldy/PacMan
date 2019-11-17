@@ -6,19 +6,15 @@ public class Ghost implements Cell, Entity{
 
     DynamicEntity dynamicGhost;
 
+
     @Override
     public String toString() {
-        return "Ghost";
+        return "G";
     }
 
     @Override
     public Position getPosition() {
         return dynamicGhost.getPosition();
-    }
-
-    @Override
-    public void treatCollision() {
-
     }
 
     @Override
@@ -28,6 +24,6 @@ public class Ghost implements Cell, Entity{
 
     @Override
     public Cell move(InputKey.Direction direction) {
-
+        return null;
     }
 }

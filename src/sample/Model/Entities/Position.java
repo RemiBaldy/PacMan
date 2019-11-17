@@ -12,7 +12,5 @@ public class Position {
         return xPos;
     }
 
-    public int getyPos() {
-        return yPos;
-    }
+    public int getyPos() {return yPos;  }
 }

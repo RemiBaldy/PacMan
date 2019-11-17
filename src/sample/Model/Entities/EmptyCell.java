@@ -1,10 +1,13 @@
 package sample.Model.Entities;
 
-import javafx.util.Pair;
 
-public class EmptyCell implements Cell {
+public class EmptyCell implements Cell,Consumable {
 
     Position position;
+
+    public EmptyCell(Position position) {
+        this.position = position;
+    }
 
     @Override
     public Position getPosition() {
@@ -12,17 +15,17 @@ public class EmptyCell implements Cell {
     }
 
     @Override
-    public void treatCollision() {
+    public void use() {
 
     }
 
     @Override
     public boolean isAccessible() {
-        return false;
+        return true;
     }
 
     @Override
     public String toString() {
-        return "EmptyCell";
+        return "E";
     }
 }

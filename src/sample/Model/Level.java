@@ -1,6 +1,6 @@
 package sample.Model;
 
-import sample.Model.Entities.Cell;
+import sample.Model.Entities.*;
 
 import java.io.*;
 import java.util.Scanner;
@@ -11,6 +11,7 @@ public class Level {
     int columns;
     int rows;
     Cell[][] grid;
+    Pacman pacman;
 
     public Level(File file) {
         columns = 0;
@@ -34,6 +35,8 @@ public class Level {
 
         loadGrid(file);
 
+        Collision.setLevel(this);
+
         System.out.println(this);
     }
 
@@ -49,7 +52,10 @@ public class Level {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 if(scanner.hasNextInt()){
-                    grid[i][j] = getEntity(EntityCode.values()[scanner.nextInt()]);
+                    int result = scanner.nextInt();
+                    grid[i][j] = FactoryEntities.getCell(EntityCode.values()[result], new Position(i,j));
+                    if(result == 3)
+                        pacman = new Pacman(new DynamicEntity(this,new Position(i,j)));
                 }
             }
             if(scanner.hasNextLine())
@@ -81,6 +87,12 @@ public class Level {
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder();
+        /*for (int i = 0; i < rows; i++) {
+            s.append("\n");
+            for (int j = 0; j < columns; j++) {
+                s.append(" ").append(grid[i][j].toString());
+            }
+        }*/
         for(Cell[] T : grid){
             s.append("\n");
             for(Cell elt: T)
@@ -93,8 +105,15 @@ public class Level {
                 '}';
     }
 
-    public Cell getCell(int xPos, int yPos) {
-        return grid[xPos][yPos];
+    public Cell getCell(Position position) {
+        return grid[position.getxPos()][position.getyPos()];
+    }
+    public void setGridCell(Cell cell){
+        grid[cell.getPosition().getxPos()][cell.getPosition().getyPos()] = cell;
+    }
+
+    public Pacman getPacman() {
+        return pacman;
     }
 }
 
