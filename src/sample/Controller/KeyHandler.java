@@ -8,6 +8,7 @@ import sample.Model.InputKey;
 
 public class KeyHandler implements EventHandler<KeyEvent> {
     Pacman pacman;
+    //static volatile boolean isMoving;
 
     public KeyHandler(Pacman pacman) {
         this.pacman = pacman;
@@ -17,6 +18,7 @@ public class KeyHandler implements EventHandler<KeyEvent> {
     public void handle(KeyEvent keyEvent) {
         InputKey.Direction direction = convertKeyToInputKey(keyEvent);
         if(direction != null){
+            System.out.println(direction);
             pacman.move(direction);
         }
     }

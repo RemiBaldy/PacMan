@@ -35,9 +35,9 @@ public class DynamicEntity implements Entity{
 
     public Cell getNextCell(InputKey.Direction direction){
         if(direction == InputKey.Direction.Up)
-            return getCell(position.getxPos()+1, position.getyPos());
-        else if(direction == InputKey.Direction.Down)
             return getCell(position.getxPos()-1, position.getyPos());
+        else if(direction == InputKey.Direction.Down)
+            return getCell(position.getxPos()+1, position.getyPos());
         else if(direction == InputKey.Direction.Right)
             return getCell(position.getxPos(), position.getyPos()+1);
         else if(direction == InputKey.Direction.Left)

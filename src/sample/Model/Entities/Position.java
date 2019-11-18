@@ -13,4 +13,12 @@ public class Position {
     }
 
     public int getyPos() {return yPos;  }
+
+    @Override
+    public String toString() {
+        return "Position{" +
+                "xPos=" + xPos +
+                ", yPos=" + yPos +
+                '}';
+    }
 }

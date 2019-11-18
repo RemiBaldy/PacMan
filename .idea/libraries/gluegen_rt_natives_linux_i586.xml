@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="gluegen-rt-natives-linux-i586">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/graphics/libs/gluegen-rt-natives-linux-i586.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/graphics/libs/gluegen-rt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/graphics/libs/GMotor.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/graphics/libs/jogl-all-natives-linux-i586.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/graphics/libs/jogl-all.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

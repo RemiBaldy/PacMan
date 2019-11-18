@@ -22,6 +22,7 @@ public class Pacman implements Cell, Entity {
     public Cell move(InputKey.Direction direction) {
         Cell newCell = dynamicPacman.move(direction);
         if(newCell != null){
+            System.out.println(getPosition());
             Collision.treatCollision(this,newCell);
             ((Consumable)newCell).use();
             return newCell;
